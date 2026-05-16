@@ -1,4 +1,3 @@
-# 120Hz-Oplus_force
 # Display 120Hz Launcher Fix (A15 / A16)
 
 <img width="1774" height="887" alt="120" src="https://github.com/user-attachments/assets/314ae963-2da8-4362-b1d2-2a69e63e2968" />
