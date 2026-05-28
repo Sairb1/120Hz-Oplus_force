@@ -1,0 +1,5 @@
+# Display 120Hz Launcher Fix - System Properties
+ro.surface_flinger.set_display_power_timer_ms=1000
+persist.sys.min_refresh_rate=120
+ro.surface_flinger.game_default_frame_rate_override=120
+sys.oplus.display.refreshrate_thread=true

@@ -1,0 +1,7 @@
+id=120Hz-Oplus_force
+name=Display 120Hz Launcher Fix Oplus(@imnotaino)
+version=v1.3
+versionCode=3
+author=Ayan
+description=Forces Settings.System min_refresh_rate=120 so system launcher scrolls at 120Hz instead of 60Hz. Fixes ported ROM where persist.sys.min_refresh_rate prop is ignored by Android DisplayManager. Includes full system-less mounting for /my_product etc configs and stock Reno 11 Pro display configurations.
+updateJson=https://raw.githubusercontent.com/Sairb1/120Hz-Oplus_force/main/update.json

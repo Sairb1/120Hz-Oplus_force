@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='utf-8' standalone='yes' ?>
+<!-- format: [report_rate_60hz],[report_rate_90hz],[report_rate_120hz],[report_rate_144hz],[report_rate_other]
+     refresh rate: 60hz, 90hz, 120hz, 144hz, other
+     multiple_level
+-->
+<report_rate_config version="20230515">
+    <config name="scene">
+        <scene id="0" value="120,180,120,180,120"/><!-- 普通场景 -->
+        <scene id="1" value="180,180,240,288,120"/><!-- 游戏场景 -->
+        <scene id="2" value="180,180,180,180,180"/><!-- 输入法场景 -->
+    </config>
+    <config name="apk">
+<!-- example
+        <apk package="com.tencent.mm" value="120,180,240,180,120"/>
+-->
+    </config>
+</report_rate_config>
