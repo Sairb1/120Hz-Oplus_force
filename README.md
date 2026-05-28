@@ -1,63 +1,64 @@
-# Display 120Hz Launcher Fix for OPLUS (Android 15 / 16 Ports)
-> A lightweight, system-less root module to force a butter-smooth 120Hz refresh rate in the system launcher and app drawer on OnePlus, OPPO, and Realme devices.
+<div align="center">
+<img width="1774" height="887" alt="ChatGPT Image May 28, 2026, 12_01_09 PM" src="https://github.com/user-attachments/assets/80880350-c62c-4b2c-8ad9-66e0d5f2ee80" />
+
+<img width="1774" height="887" alt="120Hz Launcher Fix" src="https://github.com/user-attachments/assets/314ae963-2da8-4362-b1d2-2a69e63e2968" />
+
+<img src="https://img.shields.io/badge/Display120HzFix-v3.2-blueviolet?style=for-the-badge&logo=android" alt="120HzFix"/>
+<br/>
+<img src="https://img.shields.io/badge/Android-A15%20%7C%20A16-brightgreen?style=for-the-badge"/>
+<img src="https://img.shields.io/badge/Root-Magisk%20%7C%20KernelSU%20%7C%20APatch-orange?style=for-the-badge"/>
+<img src="https://img.shields.io/badge/Telegram-imnotaino-blue?style=for-the-badge&logo=telegram"/>
+
+# ⚡ Display120HzFix
+
+**Force true 120Hz scrolling & smooth launcher animations on OPLUS Android 15 / 16 ports**
+
+Made with ♥ by **[Ayan (@imnotaino)](https://t.me/imnotaino)**  
+Updates & Support → **[t.me/colorosmodules](https://t.me/colorosmodules)**
+
+</div>
 
 ---
 
-## 📱 What it Does
-On custom ported ROMs or specific stock ROM updates of Android 15 and Android 16 on OPLUS (OnePlus/OPPO/Realme) devices, the **system launcher and app drawer** often get stuck scrolling at 60Hz. Even if the screen refresh rate is globally set to 120Hz, the DisplayManager or SurfaceFlinger framework ignores normal settings and drops down to 60Hz during home-screen interactions, resulting in visible scrolling stutter and lag.
+## 📖 What is this?
 
-This module resolves this issue system-lessly by:
-1. **Dynamic Bind Mounting**: Seamlessly mounts customized OPLUS VRR (Variable Refresh Rate) files (`refresh_rate_config.xml`, `oplus_vrr_config.json`, `report_rate_config.xml`) onto the `/my_product/etc/` partition during boot (`post-fs-data.sh`), bypassing standard Magic Mount limitations on OEM partitions.
-2. **Settings Database Injection**: Forcefully sets the `min_refresh_rate`, `peak_refresh_rate`, and `user_refresh_rate` properties inside Android's settings database immediately upon boot completion.
-3. **SurfaceFlinger Lock**: Uses advanced `resetprop` injections to overwrite read-only system properties, ensuring the SurfaceFlinger timing thresholds and OPLUS display refresh rate threads remain consistently locked to 120Hz.
-4. **Boot-persistent Guard**: Executes a recurring background loop for 5 iterations post-boot to prevent aggressive third-party thermal/battery managers (like YAKT or Uperf) from resetting your display settings.
+**Display120HzFix** is a Magisk / KernelSU / APatch module designed for **OnePlus, OPPO, and Realme** devices running Android 15 / 16 port ROMs.
 
----
+A lot of OPLUS ports suffer from a stupid issue:
+even if the refresh rate is set to **120Hz**, the launcher and app drawer still render at **60Hz** because the framework classifies them under low-priority refresh tiers.
 
-## 🛠️ Supported Environments
-* **Devices**: Rooted OnePlus, OPPO, and Realme (OPLUS) smartphones.
-* **Operating Systems**: Android 15 & Android 16 (Stock, Ported ROMs, and GSIs).
-* **Root Frameworks**: 
-  - ✅ **Magisk** (v24.0+)
-  - ✅ **KernelSU** (v0.5.0+)
-  - ✅ **APatch** (v0.10+)
+This module patches that behavior properly by forcing the system refresh floor and syncing OPLUS display services with SurfaceFlinger timing.
+
+The result:
+- smoother launcher scrolling
+- fluid recents animation
+- proper 120Hz app drawer rendering
+- reduced frame drops during UI transitions
+
+Without touching `/system`.
 
 ---
 
-## 📦 Package Contents
-* `module.prop` - Module metadata and automatic updates tracking.
-* `customize.sh` - Interactive premium installer script with slow progress updates.
-* `post-fs-data.sh` - Pre-boot systemless partition bind-mounter.
-* `service.sh` - Post-boot boot-completed settings database guard.
-* `system.prop` - Boot-time system properties injector.
-* `my_product/etc/` - Modified high-performance VRR XML & JSON configuration files.
-* `update.json` - Remote repository updater endpoint.
+## ✨ Features
+
+| Feature | Description |
+|---|---|
+| ⚡ **True 120Hz Launcher** | Forces launcher & app drawer to render at high refresh |
+| 🎞️ **Smooth Recents** | Better frame pacing during gesture navigation |
+| 🧠 **DisplayManager Fix** | Bypasses broken ROM refresh classification |
+| 🔧 **SurfaceFlinger Tweaks** | Improves render timing & idle transitions |
+| 📱 **OPLUS Optimized** | Tuned specifically for ColorOS/OxygenOS framework |
+| 🛡️ **Safe Overlay Mount** | No direct system partition modification |
 
 ---
 
-## 🚀 Installation Steps
+## 📦 How it works
 
-1. **Download**: Obtain the latest flashable ZIP (`120Hz-Oplus_force.zip`).
-2. **Flash**:
-   - **Magisk**: Open the Magisk app -> Go to **Modules** tab -> Select **Install from storage** -> Select the `.zip` file.
-   - **KernelSU**: Open the KernelSU app -> Go to **Modules** tab -> Tap **Install** -> Select the `.zip` file.
-   - **APatch**: Open the APatch app -> Go to **Modules** tab -> Tap **Install** -> Select the `.zip` file.
-3. **Wait for Install**: Enjoy the premium slow-flashing installer that sets up your configs safely step-by-step.
-4. **Reboot**: Restart your device to fully bind-mount `/my_product` configurations and trigger boot-time SurfaceFlinger properties.
+The module uses a dual-layer approach:
 
----
+### 1️⃣ Settings Database Injection
+At boot, `service.sh` directly writes:
 
-## ⚠️ Important Warnings & Disclaimers
-
-> [!WARNING]
-> This module is strictly designed for **OnePlus, OPPO, and Realme** devices. Do not flash it on other brands (e.g., Xiaomi, Samsung, Google) as it relies on specific OPLUS display rendering features and `/my_product` partitions.
-
-> [!IMPORTANT]
-> - Always make sure you have a way to disable root modules in recovery (e.g., safe mode boot, custom recovery, or KernelSU/APatch WebUI) in the rare event of a bootloop caused by other conflicting modules.
-> - This module is lightweight and highly optimized; it does not cause battery drain and operates strictly when the display needs to draw at high refresh rates.
-
----
-
-## 💬 Community & Support
-* **Developer**: Ayan (@imnotaino)
-* **Telegram Channel**: [t.me/colorosmodules](https://t.me/colorosmodules)
+```bash
+settings put system min_refresh_rate 120
+settings put system peak_refresh_rate 120
