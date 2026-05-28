@@ -1,5 +1,4 @@
 <div align="center">
-<img width="1774" height="887" alt="ChatGPT Image May 28, 2026, 12_01_09 PM" src="https://github.com/user-attachments/assets/80880350-c62c-4b2c-8ad9-66e0d5f2ee80" />
 
 <img width="1774" height="887" alt="120Hz Launcher Fix" src="https://github.com/user-attachments/assets/314ae963-2da8-4362-b1d2-2a69e63e2968" />
 
