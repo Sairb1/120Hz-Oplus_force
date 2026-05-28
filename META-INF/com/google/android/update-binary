@@ -1,4 +1,0 @@
-#!/sbin/sh
-# Magisk Module Installer - Entry Point
-# The actual logic is in customize.sh
-SKIPUNZIP=0
