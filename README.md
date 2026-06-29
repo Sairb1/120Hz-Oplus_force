@@ -1,5 +1,7 @@
 <div align="center">
 
+<img width="1774" height="887" alt="image" src="https://github.com/user-attachments/assets/97f2b2e3-8c0e-4ae6-9717-9c89cc40b723" />
+
 <img width="1774" height="887" alt="120Hz Launcher Fix" src="https://github.com/user-attachments/assets/314ae963-2da8-4362-b1d2-2a69e63e2968" />
 
 <img src="https://img.shields.io/badge/Display120HzFix-v3.2-blueviolet?style=for-the-badge&logo=android" alt="120HzFix"/>
